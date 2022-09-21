@@ -9,7 +9,7 @@ local colors = {
 	white =					'#EEFFFF',
 	gray =					'#717CB4',
 	black = 				'#000000',
-	red =   				'#F07178',
+	red =   				'#FF5370',
 	green = 				'#C3E88D',
 	yellow =				'#FFCB6B',
 	blue =  				'#82AAFF',
@@ -34,7 +34,9 @@ local colors = {
 	title =					'#EEFFFF',
 	-- visual_alt = 			'#3B3D0E',
 
-	none =      			'NONE'
+	none =      			'NONE',
+
+
 }
 
 -- Style specific colors
