@@ -10,18 +10,18 @@ theme.loadSyntax = function ()
 		Type =						{ fg = colors.purple }, -- int, long, char, etc.
 		StorageClass =				{ fg = colors.cyan }, -- static, register, volatile, etc.
 		Structure =					{ fg = colors.purple }, -- struct, union, enum, etc.
-		Comment =					{ fg = colors.comments, italic = config.italics.comments }, -- italic comments
+		Comment =					{ fg = colors.comments, italic = true }, -- italic comments
 		SpecialComment =			{ link = "Comment" }, -- special things inside a comment
-		Conditional =				{ fg = colors.purple, italic = config.italics.keywords }, -- italic if, then, else, endif, switch, etc.
+		Conditional =				{ fg = colors.purple, italic = true }, -- italic if, then, else, endif, switch, etc.
 		Constant =					{ fg = colors.yellow }, -- any constant
 		Character =					{ fg = colors.orange }, -- any character constant: 'c', '\n'
 		Number =					{ fg = colors.orange }, -- a number constant: 5
 		Boolean =					{ fg = colors.orange }, -- a boolean constant: TRUE, false
 		Float =						{ fg = colors.orange }, -- a floating point constant: 2.3e10
-		Function =					{ fg = colors.blue, italic = config.italics.functions }, -- italic funtion names
+		Function =					{ fg = colors.blue, italic = true }, -- italic funtion names
 		Identifier =				{ fg = colors.fg, italic = config.italics.variables }; -- any variable name
 		Statement =					{ fg = colors.cyan }, -- any statement
-		Keyword =					{ fg = colors.purple, italic = config.italics.keywords }, -- italic for, do, while, etc.
+		Keyword =					{ fg = colors.purple, italic = true }, -- italic for, do, while, etc.
 		Label =						{ fg = colors.purple }, -- case, default, etc.
 		Operator =					{ fg = colors.cyan }, -- sizeof", "+", "*", etc.
 		Exception =					{ fg = colors.red }, -- try, catch, throw
@@ -119,8 +119,8 @@ theme.loadEditor = function ()
 		WildMenu =				{ fg = colors.orange, bold = true }, -- current match in 'wildmenu' completion
 		CursorLine =			{ fg = colors.none, bg = colors.bg_cur }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
 		CursorColumn =			{ link = "CursorLine" }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-		-- ToolbarLine =			{ fg = colors.fg, bg = colors.bg_alt },
-		-- ToolbarButton =			{ fg = colors.fg, bold = true },
+		ToolbarLine =			{ fg = colors.fg, bg = colors.bg_alt },
+		ToolbarButton =			{ fg = colors.fg, bold = true },
 		NormalMode =			{ fg = colors.accent }, -- Normal mode message in the cmdline
 		InsertMode =			{ fg = colors.green }, -- Insert mode message in the cmdline
 		ReplacelMode =			{ fg = colors.red }, -- Replace mode message in the cmdline
@@ -393,14 +393,14 @@ theme.loadPlugins = function()
 		plugins.NvimTreeNormal =						{ fg = colors.fg, bg = colors.sidebar }
 		plugins.NvimTreeNormalNC =						{ link = "NvimTreeNormal" }
 		plugins.NvimTreeRootFolder =                    { fg = colors.accent, bg = colors.sidebar }
-		plugins.NvimTreeFolderName=                     { fg = colors.blue, bold = true }
-		plugins.NvimTreeFolderIcon=                     { link = "NvimTreeFolderName" }
+		plugins.NvimTreeFolderName=                     { fg = colors.comments, bold = false }
+		plugins.NvimTreeFolderIcon=                     { fg = colors.paleblue, bold = true }
 		plugins.NvimTreeEmptyFolderName=                { fg = colors.gray }
-		plugins.NvimTreeOpenedFolderName=               { fg = colors.green, bold = true }
+		plugins.NvimTreeOpenedFolderName=               { fg = colors.cyan, bold = false }
 		plugins.NvimTreeIndentMarker =                  { fg = colors.disabled }
-		plugins.NvimTreeGitDirty =                      { fg = colors.blue }
-		plugins.NvimTreeGitNew =                        { fg = colors.green }
-		plugins.NvimTreeGitStaged =                     { fg = colors.fg }
+		plugins.NvimTreeGitDirty =                      { fg = colors.paleblue }
+		plugins.NvimTreeGitNew =                        { fg = colors.yellow }
+		plugins.NvimTreeGitStaged =                     { fg = colors.yellow }
 		plugins.NvimTreeGitDeleted =                    { fg = colors.red }
 		plugins.NvimTreeOpenedFile =					{ link = "NvimTreeGitNew" }
 		plugins.NvimTreeImageFile =                     { fg = colors.yellow }
@@ -462,33 +462,33 @@ theme.loadPlugins = function()
 
 	-- nvim-navic
 	if config.plugins.nvim_navic then
-		plugins.NavicIconsFile =						{ fg = colors.title, bg = colors.selection }
+		plugins.NavicIconsFile =						{ fg = colors.fg, bg = colors.none }
 		plugins.NavicIconsModule =						{ link = "NavicIconsFile" }
 		plugins.NavicIconsNamespace =					{ fg = colors.yellow, bg = colors.selection }
-		plugins.NavicIconsPackage =						{ link = "NavicIconsFile" }
-		plugins.NavicIconsClass =						{ link = "NavicIconsModule" }
+		plugins.NavicIconsPackage =						{ fg = colors.fg, bg = colors.none }
+		plugins.NavicIconsClass =						{ fg = colors.yellow, bg= colors.bg }
 		plugins.NavicIconsMethod =						{ fg = colors.blue, bg = colors.selection }
-		plugins.NavicIconsProperty =					{ fg = colors.purple, bg = colors.selection }
-		plugins.NavicIconsField =						{ fg = colors.cyan, bg = colors.selection }
-		plugins.NavicIconsConstructor =					{ link = "NavicIconsProperty"}
+		plugins.NavicIconsProperty =					{ fg = colors.fg, bg = colors.none }
+		plugins.NavicIconsField =						{ fg = colors.blue, bg = colors.bg }
+		plugins.NavicIconsConstructor =					{ fg = colors.purple, bg = colors.none }
 		plugins.NavicIconsEnum =						{ link = "NavicIconsNamespace" }
 		plugins.NavicIconsInterface =					{ link = "NavicIconsModule" }
-		plugins.NavicIconsFunction =					{ link = "NavicIconsMethod" }
-		plugins.NavicIconsVariable =					{ fg = colors.paleblue, bg = colors.selection }
-		plugins.NavicIconsConstant =					{ link = "NavicIconsVariable" }
-		plugins.NavicIconsString =						{ fg = colors.orange, bg = colors.selection }
+		plugins.NavicIconsFunction =					{ fg = colors.purple ,bg = colors.none }
+		plugins.NavicIconsVariable =					{ fg = colors.blue, bg = colors.none }
+		plugins.NavicIconsConstant =					{ fg = colors.blue }
+		plugins.NavicIconsString =						{ fg = colors.fg, bg = colors.none }
 		plugins.NavicIconsNumber =						{ link = "NavicIconsString" }
-		plugins.NavicIconsBoolean =						{ fg = colors.green, bg = colors.selection }
+		plugins.NavicIconsBoolean =						{ fg = colors.fg, bg = colors.none }
 		plugins.NavicIconsArray =						{ link = "NavicIconsString" }
 		plugins.NavicIconsObject =						{ link = "NavicIconsString" }
 		plugins.NavicIconsKey =							{ link = "NavicIconsField" }
-		plugins.NavicIconsNull =						{ fg = colors.red, bg = colors.selection }
+		plugins.NavicIconsNull =						{ fg = colors.red, bg = "red" }
 		plugins.NavicIconsEnumMember =					{ link = "NavicIconsNamespace" }
 		plugins.NavicIconsStruct =						{ link = "NavicIconsModule" }
 		plugins.NavicIconsEvent =						{ link = "NavicIconsNull" }
 		plugins.NavicIconsOperator =					{ link = "NavicIconsNull" }
 		plugins.NavicIconsTypeParameter =				{ link = "NavicIconsBoolean" }
-		plugins.NavicText =								{ fg = colors.fg, bg = colors.selection }
+		plugins.NavicText =								{ fg = colors.comments, bg = colors.none }
 		plugins.NavicSeparator =						{ link = "NavicText" }
 	end
 
