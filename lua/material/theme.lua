@@ -490,6 +490,8 @@ theme.loadPlugins = function()
 		plugins.NavicIconsTypeParameter =				{ link = "NavicIconsBoolean" }
 		plugins.NavicText =								{ fg = colors.comments, bg = colors.none }
 		plugins.NavicSeparator =						{ link = "NavicText" }
+
+		vim.api.nvim_set_hl(0, "Winbar", { fg = colors.comments })
 	end
 
 	-- WhichKey
